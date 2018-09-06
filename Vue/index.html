@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .hunter{
+            color:white;
+            background: blue;
+        }
+        .red{
+            color: white;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="root1">
+<!-- 做个笔记试试 -->
+    <input type="text" v-model="message">
+    {{message}}
+    <p v-bind:class="className">塞尔达天下第一</p>
+    <button v-on:click="out">点这</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script type="text/javascript">
+    //创建Vue对象
+    /*
+    * Vue是基于MVVM设计理念设计的,在使用Vue对象时需要创建Vue对象,其中el
+    * 用来设置vue对象的作用范围,data属性则是用来设置vue对象的数据模型,
+    * 当视图层view需要数据时,vue对象会根据data中定义提前注册的数据进行
+    * 查找,如果有则直接使用该数据,如果没有则直接抛出异常,注意Vue实现的
+    * 数据绑定是一种双向数据绑定
+    *
+    * vue指令集
+    * v-bind: 用来完成对标签属性值的绑定,该指令是一个带参指令,参数名为
+    * 标签
+    *
+    * 需要添加的属性名,具体语法:v-bind: 属性名="属性值" 可简写为:
+    *
+    * v-on:事件名 = "事件具体操作" 可简写为@--用来完成对标签事件的绑定
+    * 绑定的事件需要提前在vue对象中通过methods定义之后绑定,
+    * 注意最终事件的调用是交给vue对象调用的,因此在事件中this指代vue对象
+    *
+    * v-model作用和v-bind类似都是用来完成数据绑定,但是v-bind使用来为
+    * 标签绑定属性,但是v-mdel则是将指定的数据模型绑定给对应标签,此绑定
+    * 是双向绑定
+    *
+    * v-html的作用:经一段html代码直接绑定给指定的标签
+    * */
+    let vml = new Vue({
+        el:'#root1',
+        data:{
+            messagele:'欢迎来到旧亚楠',
+            className:'hunter'
+        },
+        methods:{
+            out:function (event) {
+                if(this.className=='hunter'){
+                    this.className='red'
+                }else {
+                    this.className='hunter'
+                }
+            }
+        }
+    })
+</script>
+</html>
