@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>巴顿品牌设计</title>
+    <link rel="stylesheet" href="css/swiper-4.3.5.min.css">
+    <link rel="stylesheet" href="css/badun.css">
+</head>
+<body>
+<div class="header">
+    <!--使用sweiper设置轮播图-->
+    <div class="lunbo1" id="root1">
+        <div class="swiper-container">
+          <div class="swiper-wrapper lunbo">
+              <!--Vue-for创建图片放置框和图片-->
+            <div class="swiper-slide" v-for="obj in products" :key="obj.url">
+                <img :src="obj.url" alt="">
+            </div>
+          </div>
+
+            <!--轮播图下方控制轮播-->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev left" @mouseenter="enterl" @mouseleave="leavel">
+                <!--左箭头线动画预设处-->
+                <div class="ll"></div>
+            </div><!--左箭头-->
+            <div class="swiper-button-next right" @mouseenter="enterr" @mouseleave="leaver">
+                <!--左箭头线动画预设处-->
+                <div class="rr"></div>
+            </div><!--右箭头-->
+
+        </div>
+    </div>
+</div>
+<div class="body" id="root2">
+    <div class="action1">
+        <!--Vue全局模块创建action的块图-->
+        <link-img v-for="obj1 in action" :datalist="obj1"></link-img>
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/swiper-4.3.5.min.js"></script>
+<script src="js/js.js"></script>
+<script type="text/javascript">
+    //获取action出图片宽度添加给图片高度构成正方形,以及幕布的高度
+    let a = $('.action1 a').width();
+    $('.action1 a').height(a);
+
+     $('.action1 .heimu').height(a);
+     // 获取轮播图高度,添加给下方,空出该高度
+    let h= $('#root1').height();
+     $('#root2').css({
+         marginTop:h
+     })
+</script>;
+</html>
