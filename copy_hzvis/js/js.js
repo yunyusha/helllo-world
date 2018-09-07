@@ -15,24 +15,45 @@ Vue.component('link-img',{
             style_img:{
                 width:'100%',
                 height:'100%',
-                positive:'absolute',
+                position:'absolute',
                 left:'0',
-                top:'0',
+                top:'0'
             },
             style_div:{
+                zIndex:'1',
                 display:'display',
                 opacity:'0',
                 background:'black',
                 position:'absolute',
                 left:'0',
                 top:'0',
-                width:'100%'
+                width:'100%',
+                fontSize:'15px',
+                color:'white'
+            },
+            style_h1:{
+                fontSize:'25px',
+                marginTop: '5%',
+                marginLeft:'5%'
+            },
+            style_div2:{
+                fontSize:'18px',
+                marginLeft:'5%',
+                marginTop:'60%'
             }
         }
     },
     props:['datalist'],
-    template:`<a href="#" :style="style_a" @mouseenter="entera" @mouseleave="leavea"> 
-                <div class="heimu" :style="style_div"></div>
+    template:`<a href="#" :style="style_a" @mouseenter="entera" @mouseleave="leavea" :key="datalist.url"> 
+                <div class="heimu" :style="style_div">
+                    <h1 :style="style_h1">{{datalist.tit}}</h1>
+                    <div class="di" :style="style_div2">
+                        <p>-</p>
+                        <p class="p1">{{datalist.p1}}</p>
+                        <p class="p2">{{datalist.p2}}</p>
+                    </div>
+                </div>
+                
                 <img :src="datalist.url" :style="style_img" alt="">
                </a>`,
     methods: {
@@ -47,8 +68,10 @@ Vue.component('link-img',{
             let h = $(`a:nth-child(${s}) img`).height();
             console.log(l);
              $(`a:nth-child(${s}) img`).stop().animate({
-                width:'120%',
-                 height:'120%',
+                width:'110%',
+                 height:'110%',
+                 left:'-5%',
+                 top:'-5%'
              });
             $(`a:nth-child(${s}) .heimu`).stop().animate({
                 opacity:'0.5'
@@ -58,8 +81,10 @@ Vue.component('link-img',{
             let s = $(event.target).index();
             s++;
             $(`a:nth-child(${s}) img`).stop().animate({
+                left:'0',
                 width:'100%',
-                height:'100%'
+                height:'100%',
+                top:'0'
              });
             $(`a:nth-child(${s}) .heimu`).stop().animate({
                 opacity:'0'
