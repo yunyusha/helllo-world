@@ -20,7 +20,7 @@ Vue.component('link-img',{
                 top:'0'
             },
             style_div:{
-                zIndex:'1',
+                zIndex:'2',
                 display:'display',
                 opacity:'0',
                 background:'black',
@@ -112,6 +112,7 @@ let vm1 =new Vue({
         ]
     },
     methods: {
+
         enterl: function (event) {
             $('.left').stop().animate({
                 left:'40px',
@@ -154,6 +155,7 @@ let vm1 =new Vue({
 let vm2 = new Vue({
     el:'#root2',
     data:{
+
         p0:"-",
          action:[
             {'url':'img/01.jpg','tit':'古茗茶饮',
