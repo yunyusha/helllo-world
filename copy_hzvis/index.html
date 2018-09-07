@@ -27,8 +27,8 @@
     </div>
 </div>
 <div class="body" id="root2">
-    <div class="action">
-
+    <div class="action1">
+        <link-img v-for="obj1 in action" :datalist="obj1"></link-img>
     </div>
 </div>
 </body>
@@ -37,5 +37,8 @@
 <script src="js/swiper-4.3.5.min.js"></script>
 <script src="js/js.js"></script>
 <script type="text/javascript">
-</script>
+    let a = $('.action1 a').width();
+    $('.action1 a').height(a);
+     $('.action1 .heimu').height(a);
+</script>;
 </html>

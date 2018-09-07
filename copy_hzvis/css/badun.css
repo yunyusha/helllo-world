@@ -39,4 +39,12 @@ img{
     margin: 0 8px;
     bottom: 20px;
 }
+.action1{
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0;
+}
 
