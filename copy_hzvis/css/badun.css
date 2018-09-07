@@ -1,0 +1,42 @@
+.lunbo{
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+img{
+    width: 100%;
+}
+.left{
+    height: 60px;
+    width: 70px;
+    left: 50px;
+    /*background: red;*/
+}
+.right{
+    height: 60px;
+    width: 70px;
+    right: 50px;
+    /*background: red;*/
+}
+.ll{
+    height: 3px;
+    width: 0;
+    background: red;
+    position: absolute;
+    top: 30px;
+    left: 28px;
+}
+.rr{
+    height: 3px;
+    width: 0;
+    background: red;
+    position: absolute;
+    top: 30px;
+    right: 28px;
+}
+#root1 .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    margin: 0 8px;
+}
+

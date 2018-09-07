@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>巴顿品牌设计</title>
+    <link rel="stylesheet" href="css/swiper-4.3.5.min.css">
+    <link rel="stylesheet" href="css/badun.css">
+</head>
+<body>
+<div class="header">
+    <div class="lunbo1" id="root1">
+        <div class="swiper-container">
+          <div class="swiper-wrapper lunbo">
+            <div class="swiper-slide" v-for="obj in products" :key="obj.url">
+                <img :src="obj.url" alt="">
+            </div>
+          </div>
+    <div class="swiper-pagination" style="bottom: 120px"></div>
+            <div class="swiper-button-prev left" @mouseenter="enterl" @mouseleave="leavel">
+                <div class="ll"></div>
+            </div><!--左箭头-->
+            <div class="swiper-button-next right" @mouseenter="enterr" @mouseleave="leaver">
+                <div class="rr"></div>
+            </div><!--右箭头-->
+
+        </div>
+    </div>
+</div>
+<div class="body" id="root2">
+    <div class="action">
+
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/swiper-4.3.5.min.js"></script>
+<script src="js/js.js"></script>
+<script type="text/javascript">
+</script>
+</html>
