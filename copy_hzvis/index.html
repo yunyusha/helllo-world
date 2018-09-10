@@ -45,7 +45,8 @@
 <script src="js/js.js"></script>
 <script type="text/javascript">
     //获取action出图片宽度添加给图片高度构成正方形,以及幕布的高度
-    let a = $('.action1 a').width();
+    window.onload=function (ev) {
+        let a = $('.action1 a').width();
     $('.action1 a').height(a);
 
      $('.action1 .heimu').height(a);
@@ -54,5 +55,6 @@
      $('#root2').css({
          marginTop:h
      })
+    }
 </script>;
 </html>
