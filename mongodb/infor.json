@@ -1,0 +1,26 @@
+[
+  {
+    "name":"小菜",
+    "age" :20,
+    "sex" :"男",
+    "photo":["img/big.jpg","img/small.jpg","img/normal.jpg"],
+    "score":[100,120,130,450,140]
+  },
+
+  {
+    "name":"兵哥",
+    "age" :20,
+    "sex" :"男",
+    "photo":["img/big.jpg","img/small.jpg","img/normal.jpg"],
+    "score":[10,12,13,40,14]
+  },
+
+  {
+    "name":"菜",
+    "age" :10,
+    "sex" :"l",
+    "photo":["img/big.jpg","img/small.jpg","img/normal.jpg"],
+    "score":[10,120,130,45,140]
+  }
+
+]
