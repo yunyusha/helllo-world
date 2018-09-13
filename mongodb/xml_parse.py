@@ -73,13 +73,15 @@ xml_str = ET.tostring(root)
 print(xml_str)
 
 # xml解析
+# 使用ET进行xml字符串解析
+root2 = ET.fromstring(xml_str)
+# 获取 user
+# print(root2)
 
-
-root2 = tree.getroot()
-usr = next(root2.iter('user')).text()
-pass1 = next(root2.iter('pass')).text()
-time_str = next(root2.iter('time')).text()
-print(usr+":"+pass1+":"+time_str)
-
+username = root2.findtext('user')
+password = next(root2.iter('pass')).text
+print(password)
+time_1 = root2.findtext('time')
+print(time_1)
 
 
