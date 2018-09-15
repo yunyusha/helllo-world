@@ -20,6 +20,7 @@ from app2 import views
 urlpatterns = [
     path('show_login/', views.show_login, name="sl"),
     path('show_regist/', views.show_regist, name="sr"),
-    path('regist/', views.regist, name='regist')
+    path('regist/', views.regist, name='regist'),
+    path('log_in/', views.log_in, name='li'),
 
 ]

@@ -18,7 +18,7 @@ from django.urls import path, re_path
 from app1 import views
 
 urlpatterns = [
-    re_path('welcome/<inter:username>/<inter:password>/', views.welcome, name='wc'),
+    re_path('welcome/<int:username>/<int:password>/', views.welcome, name='wc'),
     path('login/', views.show_login, name='login'),
     path('login_check/check/', views.receive_data, name='rev'),
     path('show/', views.show, name='show')

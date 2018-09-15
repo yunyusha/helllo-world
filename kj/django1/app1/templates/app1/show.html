@@ -33,13 +33,13 @@
 </head>
 <body>
     <div class="pers">
-        {% for item in persons%}
+        {% for per in persons%}
         <form action="">
              <div class="per">
-                <h3>姓名:{{ pers.name }}</h3>
+                <h3>姓名:{{ per.name }}</h3>
                 <div>
                     性别:
-                    {% if pers.sex == '男' %}
+                    {% if per.sex == '男' %}
                         <input type="radio" name="sex" value="男" checked>男
                     <input type="radio" name="sex" value="女">女
                     {% else %}
@@ -47,7 +47,7 @@
                     <input type="radio" name="sex" value="女" checked>女
                     {% endif %}
                 </div>
-                <p>年龄: {{ pers.age }}</p>
+                <p>年龄: {{ per.age }}</p>
             </div>
         </form>
         {%endfor%}}

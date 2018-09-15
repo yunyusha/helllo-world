@@ -24,9 +24,38 @@ def regist(requset):
         return render(requset, 'app2/login.html')
     else:
         return HttpResponse('对不起本次注册失败')
+# 定义函数完成服务器登录功能
+def log_in(request):
+    user = request.POST.get('user')
+    password = request.POST.get('passw')
+    if deal_logindata(user, password) is True:
+        return HttpResponse('登录成功')
+    else:
+        return HttpResponse('登录失败')
+# 定义函数完成登录数据处理
+def deal_logindata(user,password):
+    path = os.path.join(settings.BASE_DIR, 'app2/data/account.txt')
+    if os.path.exists(path):
+        # 文件存在
+        f = open(path, 'r')
+        data_list = json.loads(f.read())
+        f.close()
+        # 定义一个变量存储当前用户是否存在
+        r = False
+        for obj in data_list:
+            if obj.get('user') == user and obj.get('pass') == password:
+                r = True
+                break
+        if r is True:
+            return True
+        else:
+            return False
+    else:
+        return False
 
-    # 定义函数完成数据处理
-def deal_data(user,password):
+
+# 定义函数完成数据处理
+def deal_data(user, password):
     if len(user) == 0 or len(password) == 0:
         return False
     else:
@@ -52,7 +81,7 @@ def deal_data(user,password):
                 f = open(path, 'w')
                 f.write(json.dumps(data_list))
                 f.close()
-                return False
+                return True
         else:
             # 文件不存在
             f = open(path, 'w')

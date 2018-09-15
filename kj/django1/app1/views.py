@@ -33,7 +33,7 @@ def show(request):
     pers = [
         {'name': '冰哥', 'sex': '女', 'age': 20},
         {'name': '李坤', 'sex': '女', 'age': 38},
-        {'name': '张引', 'sex': '中性', 'age': 25},
+        {'name': '张引', 'sex': '男', 'age': 25},
         {'name': '刘乾', 'sex': '男', 'age': 40},
         {'name': '李炳辉', 'sex': '男', 'age': 35},
         {'name': '王凡', 'sex': '男', 'age': 18},
