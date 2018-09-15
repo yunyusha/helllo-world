@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <form action="http://127.0.0.1:8000/login/check/" method="post">
+    <form action="{%url 'show'%}" method="post">
         {% csrf_token %}
         <div>
             用户名: <input type="text" name="username">

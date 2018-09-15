@@ -1,0 +1,58 @@
+<!--加载工程中对应的static文件夹-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .pers{
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .per{
+            width:200px;
+            text-align: center;
+            border: 1px solid rgba(0,255,0,0.3);
+            box-shadow: 1px 1px 5px rgba(200,200,200,0.5);
+            float: left;
+            margin: 20px;
+        }
+        div,p{
+            margin: 20px 0;
+        }
+        h3{
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="pers">
+        {% for item in persons%}
+        <form action="">
+             <div class="per">
+                <h3>姓名:{{ pers.name }}</h3>
+                <div>
+                    性别:
+                    {% if pers.sex == '男' %}
+                        <input type="radio" name="sex" value="男" checked>男
+                    <input type="radio" name="sex" value="女">女
+                    {% else %}
+                    <input type="radio" name="sex" value="男" >男
+                    <input type="radio" name="sex" value="女" checked>女
+                    {% endif %}
+                </div>
+                <p>年龄: {{ pers.age }}</p>
+            </div>
+        </form>
+        {%endfor%}}
+    </div>
+    <img src="{%static 'img/1.jpg' %}" alt="">
+
+</body>
+</html>

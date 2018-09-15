@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app1',
+    'app2',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# 设置静态文件根目录,当进行Django项目部署时可以将所有app下面的静态文件全部
+# 复制到该目录下.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 设置工程共享的静态文件路径,即在该路径下所有的文件可以被工程中任意一个app共享,
+# app在加载文件的过程中会优先加载该静态文件夹下的文件,如果明日又此时才会加载属于自身app下的static文件夹中的文件
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'common_static'),)

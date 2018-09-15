@@ -15,7 +15,7 @@ def welcome(request, user, password):
 
 # 定义函数完成指定页面的渲染
 def show_login(request):
-    return render(request, 'login.html')
+    return render(request, 'app1/login.html')
 
 # 服务器接收浏览器通过GET或POST发送的数据
 # request: 浏览器向服务器发送的网络请求对象,其中存储本次请求的各种信息
@@ -28,3 +28,16 @@ def receive_data(request):
     password = request.POST.get('password')
     return HttpResponse('您本次登录使用的用户名为{0},密码为{1}'.format(username, password))
 
+# 定义函数完成show.html页面的渲染
+def show(request):
+    pers = [
+        {'name': '冰哥', 'sex': '女', 'age': 20},
+        {'name': '李坤', 'sex': '女', 'age': 38},
+        {'name': '张引', 'sex': '中性', 'age': 25},
+        {'name': '刘乾', 'sex': '男', 'age': 40},
+        {'name': '李炳辉', 'sex': '男', 'age': 35},
+        {'name': '王凡', 'sex': '男', 'age': 18},
+        {'name': '雨轩', 'sex': '女', 'age': 25},
+
+    ]
+    return render(request, 'app1/show.html', {'persons': pers})
