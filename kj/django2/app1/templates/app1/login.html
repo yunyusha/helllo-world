@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{%static 'app1_css/login.css' %}">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            用户名: <input type="text" name="user">
+        </div>
+        <div>
+            <span style="letter-spacing: 1em">密</span>码:<input type="password" name="passw">
+        </div>
+        <div>
+            <input type="submit" value="登录">
+        </div>
+        <div>
+            <a href="{%url 'sr' %}" target="_blank">新用户注册</a>
+        </div>
+    </form>
+</body>
+</html>
