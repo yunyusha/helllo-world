@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{%static 'app1_css/login.css' %}">
 </head>
 <body>
-    <form action="" method="post">
+    <form method="post">
            {% csrf_token %}
         <div>
             用户名: <input type="text" name="user">
@@ -20,4 +20,41 @@
         </div>
     </form>
 </body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        //form表单数据序列化
+        let paras = $('form').serialize();
+        //发送csrf token
+        create_csrf();
+        //ajax请求完成数据的提交操作
+        $.ajax({
+            url:'{%url "regist_account" %}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                //完成数据的json解析
+                res = JSON.parse(res);
+                if(res.code ==200){
+                    //本次注册成功
+                    let btn= confirm('用户注册成功,是否返回登陆页面完成登陆');
+                    if(btn){
+                        //页面自动跳转到登陆页面
+                        window.location.href = '{%url "sl"%}';
+                    }
+                }else {
+                    //本次注册失败
+                    alert(res.error);
+                }
+            }
+        });
+
+    });
+
+    //定义函数生成CSRF_TOKEN
+
+</script>
+
 </html>

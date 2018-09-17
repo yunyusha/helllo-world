@@ -19,4 +19,6 @@ from app1 import views
 urlpatterns = [
     path('show_login_app1/', views.show_login, name='sl'),
     path('show_regist_app1/', views.show_regist, name='sr'),
+    path('regist_app1/', views.regist_account, name='regist_account'),
+    path('login_app1/', views.login_data, name='login_app1')
 ]

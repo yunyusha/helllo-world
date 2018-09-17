@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{%static 'app1_css/login.css' %}">
 </head>
 <body>
-    <form action="" method="post">
+    <form>
         {% csrf_token %}
         <div>
             用户名: <input type="text" name="user">
@@ -23,4 +23,35 @@
         </div>
     </form>
 </body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        //获取form表单数据
+        let paras = $('form').serialize();
+        create_csrf();
+        //发送ajax请求
+        $.ajax({
+            url:'{%url "login_app1"%}',
+            type:"post",
+            data:paras,
+            success:function (res){
+                res = JSON.parse(res);
+                if(res.code == 200){
+                    //登录成功
+                    alert('登录成功');
+                }else if(res.code == 300){
+                    let btn = confirm('用户名不存在,滚去注册');
+
+                    if(btn){
+                        window.location.href = '{%url "sr"%}';
+                    }
+                }else {
+                        alert(res.error);
+                    }
+            }
+        })
+    })
+</script>
 </html>

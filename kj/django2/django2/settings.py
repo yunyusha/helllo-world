@@ -122,6 +122,4 @@ STATIC_URL = '/static/'
 # 设置静态文件的根目录
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # 设置所有app的共享资源文件夹
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'common_static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'common_static'),)
