@@ -44,7 +44,7 @@ Vue.component('link-img',{
         }
     },
     props:['datalist'],
-    template:`<a href="#" :style="style_a" @mouseenter="entera" @mouseleave="leavea" :key="datalist.url"> 
+    template:`<a href="#" @mouseenter="entera" @mouseleave="leavea" :key="datalist.url" class="yun"> 
                 <div class="heimu" :style="style_div">
                     <h1 :style="style_h1">{{datalist.tit}}</h1>
                     <div class="di" :style="style_div2">
@@ -178,7 +178,7 @@ let vm2 = new Vue({
                 'p1':'斑马头策略设计',
                 'p2':'品牌策略、品牌命名、品牌设计、VI设计、网站设计'
             },
-            {'url':'img/06.jpg','tit':';老娘舅餐饮',
+            {'url':'img/06.jpg','tit':'老娘舅餐饮',
                 'p1':'老娘舅品牌形象升级',
                 'p2':'品牌设计、VI设计、专卖店空间设计'
             },

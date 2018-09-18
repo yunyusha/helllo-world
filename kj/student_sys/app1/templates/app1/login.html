@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%static 'app1/css/login.css'%}">
+</head>
+<body>
+    <form>
+        <div>
+            用户名: <input type="text" name="user">
+        </div>
+        <div>
+            <span style="letter-spacing: 1em">密</span>码: <input type="password" name="passw">
+        </div>
+        <div>
+            <input type="submit" value="登陆">
+        </div>
+    </form>
+</body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click',function (event) {
+        // 阻止form表单提交方式
+        event.preventDefault();
+        //获取form表单数据
+        let paras = $('form').serialize();
+        // 安全保障
+        create_csrf();
+        // 发送ajax请求
+        $.ajax({
+            url:'{%url "login_data"%}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                res = JSON.parse(res);
+                if(res.code == 200){
+                    //登录成功
+                    alert('登录成功')
+                }else if(res.code == 300){
+                    let btn = confirm('用户名不存在,赶紧去注册一个');
+                    if(btn){
+
+                    }else {
+                        alert(res.error);
+                    }
+                }
+            }
+        })
+    })
+</script>
+</html>

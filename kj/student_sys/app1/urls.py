@@ -1,4 +1,4 @@
-"""django2 URL Configuration
+"""student_sys URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import include
-
+from .import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('app1/', include('app1.urls')),
-    path('app2/', include('app2.urls')),
+    path('st/', views.show_st, name='st'),
+    path('show_login/', views.show_login, name='sl'),
+    path('login_data/', views.login_data, name='login_data'),
 ]
