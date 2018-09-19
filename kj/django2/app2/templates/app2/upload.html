@@ -75,8 +75,37 @@
     </form>
 </body>
 <script src='{%static "js/jquery.min.js"%}'></script>
+<script src='{%static "js/jquery.cookie.js"%}'></script>
 <script src="{%static 'js/csrf.js'%}"></script>
 <script type="text/javascript">
+    if(!$.cookie('account')){
+        window.location.href = "{%url 'sl'%}";
+    }
+    //自动向服务器请求该用户的资料信息
+    $.ajax({
+        url:'{%url "pass_user"%}',
+        type:'post',
+        data:"account="+$.cookie('account'),
+        success:function (res) {
+            // console.log(res);
+            res = JSON.parse(res);
+            if(res.code == 200){
+                $('#photo').attr('src',res.infor.photo);
+                $('input[name="nickname"]').val(res.infor.nickname);
+                $('input[name="age"]').val(res.infor.age);
+                if(res.infor.sex == '男'){
+                    $('input[value="男"]').attr('checked',"checked");
+                    $('input[value="女"]').removeAttr('checked');
+
+
+                }else {
+                    $('input[value="女"]').attr('checked',"checked");
+                    $('input[value="男"]').removeAttr('checked');
+                }
+
+            }
+        }
+    });
     //该事件用来监听文件上传控件是否选择好指定文件
     $('#file').on('change', function () {
         // 获取文件选择控件选择的图片对象
@@ -91,8 +120,13 @@
 
         // 正式进行数据传输
         create_csrf(); // 生成csrf_token
+        // 获取用户的账号
+        let account = $.cookie('account');
+        //动态获取对应的路径
+        let str = "{%url 'deal_file' 123%}";
         $.ajax({
-           url:'{%url "deal_file"%}',
+            // 将路径中的123参数替换成变量account中的值
+           url:str.replace(123,account),
            type:'post',
            data:formD,
             processData:false,//数据传输过程中不需要将数据转换成字符串
@@ -106,6 +140,27 @@
                }
            }
         });
+    });
+
+    $('input[type="submit"]').on('click',function (event) {
+        event.preventDefault();
+        // 获取form表单数据
+        let paras = $('form').serialize();// 序列化为字符串
+        paras += ('&account=' + $.cookie('account')+"&photo="+$('#photo').attr('src'));
+        // console.log(paras);
+    //    将数据传输给服务器进行存储
+        create_csrf();
+        $.ajax({
+            url:'{%url "save_user"%}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data.code == 200){
+                    window.location.href = '{%url "home"%}';
+                }
+            }
+        })
     });
 </script>
 </html>

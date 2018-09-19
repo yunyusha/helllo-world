@@ -1,0 +1,45 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .head{
+            background: #41b5ff;
+            text-align: right;
+            padding: 15px 30px;
+            color: #a447a8;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            color: red;
+            background: rgba(51, 255, 53, 0.3);
+            border: 0;
+            box-shadow: inset 0 0 15px #abf51a;
+            border-radius:5px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="head">
+        <span class="user">小菜菜</span>
+        <button>注销</button>
+    </div>
+</body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/jquery.cookie.js'%}"></script>
+<script type="text/javascript">
+    if(!$.cookie('account')){
+        window.location.href = "{%url 'sl'%}";
+    }
+     $('.user').html($.cookie('account'),{path:'/'});
+</script>
+</html>

@@ -19,6 +19,9 @@ from django.urls import include
 from . import views
 urlpatterns = [
     path('upload/', views.render_upload, name="upload"),
-    path('deal_file', views.deal_file, name="deal_file"),
-    path('pass_data/<str:img_name>/', views.pass_img_data,name='pass_data'),
+    path('deal_file/<str:account>/', views.deal_file, name="deal_file"),
+    path('pass_data/<str:account>/<str:img_name>/', views.pass_img_data,name='pass_data'),
+    path('save_user_infor/', views.save_user_infor, name='save_user'),
+    path('home/', views.render_home, name='home'),
+    path('pass_user', views.pass_user_infor, name="pass_user"),
 ]

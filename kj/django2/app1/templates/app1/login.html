@@ -24,6 +24,7 @@
     </form>
 </body>
 <script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/jquery.cookie.js'%}"></script>
 <script src="{%static 'js/csrf.js'%}"></script>
 <script type="text/javascript">
     $('input[type="submit"]').on('click', function (event) {
@@ -40,7 +41,12 @@
                 res = JSON.parse(res);
                 if(res.code == 200){
                     //登录成功
-                    alert('登录成功');
+                    //将账号信息存储到localStorage, localStorage是一种本地存储方式,该方式以键值对形式进行数据的存取,最大空间为5M,注意localStorage存储的数据会一直有效,直到用户注销登陆之后开发人员将该字段删除
+
+                    // localStorage.setItem('account', res.account);
+                    //cookie: Web端提供的另外一种数据存储方式,该方式最大数据存储量为4kb,同时该方式存储的数据是可以人为指定数据有效期,默认是当前会话,即浏览器未关闭之前的状态,jQuery中的cookie需要设置path为"/",保证其他页面正常访问到该cookie
+                    $.cookie('account',res.account,{path:'/'});
+                    window.location.href = '{%url "upload"%}'
                 }else if(res.code == 300){
                     let btn = confirm('用户名不存在,滚去注册');
 

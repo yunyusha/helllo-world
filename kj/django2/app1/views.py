@@ -46,10 +46,10 @@ def login_data(request):
     for item in result:
         obj = item
     if obj is None:
-        msg = {'code': 300,'error': '用户名不存在'}
+        msg = {'code': 300, 'error': '用户名不存在'}
     else:
         if obj.password == password:
-            msg = {'code': 200, 'error': ''}
+            msg = {'code': 200, 'error': '', 'account': username}
         else:
             msg = {'code': 400, 'error': '密码错误'}
     return HttpResponse(json.dumps(msg))
