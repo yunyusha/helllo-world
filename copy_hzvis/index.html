@@ -5,6 +5,7 @@
     <title>巴顿品牌设计</title>
     <link rel="stylesheet" href="css/swiper-4.3.5.min.css">
     <link rel="stylesheet" href="css/badun.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
 <body>
 <div class="header">
@@ -55,6 +56,17 @@
      $('#root2').css({
          marginTop:h
      })
-    }
+    };
+    $(window).resize(function () {
+        let a = $('.action1 a').width();
+        $('.action1 a').height(a);
+
+        $('.action1 .heimu').height(a);
+        // 获取轮播图高度,添加给下方,空出该高度
+        let h= $('#root1').height();
+        $('#root2').css({
+            marginTop:h
+     })
+    });
 </script>;
 </html>

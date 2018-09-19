@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        input{
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid rgba(0,0,0,0.7);
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            outline: none;
+        }
+        form{
+            text-align: center;
+            width: 400px;
+            margin: 200px auto;
+            border:1px solid red;
+            padding: 20px 0;
+            border-radius: 10px;
+        }
+        form div{
+            margin-bottom: 20px;
+
+        }
+        input[type='submit']{
+            width: 300px;
+            height: 30px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="{%url 'show'%}" method="post">
+        {% csrf_token %}
+        <div>
+            用户名: <input type="text" name="username">
+        </div>
+        <div>
+            <span style="letter-spacing: 1em">密</span>码: <input type="password" name="password">
+        </div>
+        <input type="submit" value="登录">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<Persons>
+    <Person data="傻蛋">
+        <name>小菜</name>
+        <age>20</age>
+        <sex>男</sex>
+        <photo>img/1.jpg</photo>
+    </Person>
+     <Person>
+        <name>冰哥</name>
+        <age>100</age>
+        <sex>男</sex>
+        <photo>img/2.jpg</photo>
+    </Person>
+     <Person>
+        <name>李坤</name>
+        <age>50</age>
+        <sex>女</sex>
+        <photo>img/3.jpg</photo>
+    </Person>
+     <Person>
+        <name>张引</name>
+        <age>38</age>
+        <sex>女</sex>
+        <photo>img/4.jpg</photo>
+    </Person>
+</Persons>

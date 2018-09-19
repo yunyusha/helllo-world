@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>regist</title>
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+</head>
+<body>
+    <form>
+           {% csrf_token %}
+        <div>
+            用户名: <input type="text" name="user">
+        </div>
+        <div>
+            <span style="letter-spacing: 1em">密</span>码:<input type="password" name="passw">
+        </div>
+        <div>
+            <input type="submit" value="立即注册">
+        </div>
+    </form>
+</body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click',function (event) {
+        event.preventDefault();
+        //form表单数据序列化
+        let paras = $('form').serialize();
+        //发送csrf_token
+        create_csrf();
+        //ajax请求完成数据的提交操作
+        $.ajax({
+            url:'{%url "regist_account"%}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                //完成数据的json解析
+                res = JSON.parse(res);
+                if(res.code == 200){
+                    //本次注册成功
+                    let btn = confirm('用户注册成功,滚回登录页面');
+                    if(btn){
+                        //页面自动跳转到登录页面
+                        window.location.href = '{%url "sl"%}';
+                    }
+                }else {
+                    //本次注册失败
+                    alert(res['error']);
+                }
+            }
+        });
+    });
+</script>
+</html>

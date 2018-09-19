@@ -1,0 +1,166 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 800px;
+            border: 1px solid red;
+            border-radius: 10px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+            margin: 100px auto;
+        }
+        form>div{
+            margin: 15px 0;
+            padding:0 50px;
+        }
+        input[type="text"]{
+            width: 300px;
+            height: 30px;
+        }
+        input[type='radio']{
+            padding: 0 10px;
+        }
+        input[type='submit']{
+            width: 100px;
+            height: 30px;
+            border:1px solid rgba(0,0,0,0.5);
+            color: white;
+            background: rgba(0,0,0,0.7);
+            border-radius:5px;
+        }
+        form>div:last-child{
+            text-align: right;
+        }
+        #photo{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+        #file{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--在文件上传时form表单的数据传输方式必须为post,并且编码格式必须为multipart/form-data,否则服务器端是无法获取传输的文件数据-->
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            头像:
+            <label for="file">
+            <img src="{%static 'img/1.jpg'%}" alt="" id="photo">
+            </label>
+            <input type="file" id="file">
+        </div>
+        <div>
+            昵称:<input type="text" name="nickname">
+        </div>
+        <div>
+            性别:<input type="radio" name="sex" value="男" checked>男
+            <input type="radio" name="sex" value="女">女
+        </div>
+        <div>
+            年龄:<input type="text" name="age">
+        </div>
+        <div>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+</body>
+<script src='{%static "js/jquery.min.js"%}'></script>
+<script src='{%static "js/jquery.cookie.js"%}'></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    if(!$.cookie('account')){
+        window.location.href = "{%url 'sl'%}";
+    }
+    //自动向服务器请求该用户的资料信息
+    $.ajax({
+        url:'{%url "pass_user"%}',
+        type:'post',
+        data:"account="+$.cookie('account'),
+        success:function (res) {
+            // console.log(res);
+            res = JSON.parse(res);
+            if(res.code == 200){
+                $('#photo').attr('src',res.infor.photo);
+                $('input[name="nickname"]').val(res.infor.nickname);
+                $('input[name="age"]').val(res.infor.age);
+                if(res.infor.sex == '男'){
+                    $('input[value="男"]').attr('checked',"checked");
+                    $('input[value="女"]').removeAttr('checked');
+
+
+                }else {
+                    $('input[value="女"]').attr('checked',"checked");
+                    $('input[value="男"]').removeAttr('checked');
+                }
+
+            }
+        }
+    });
+    //该事件用来监听文件上传控件是否选择好指定文件
+    $('#file').on('change', function () {
+        // 获取文件选择控件选择的图片对象
+        let file_c = $('#file').get(0);
+        // console.log(file_c.files);
+        //files是input[type=file]的属性,用来存储文件选择控件选择的图片对象,
+        //是一个数据类型的数据
+        let file_obj = file_c.files[0];
+        //将文件类型的数据打包成form表单数据
+        let formD = new FormData();
+        formD.append('files',file_obj);
+
+        // 正式进行数据传输
+        create_csrf(); // 生成csrf_token
+        // 获取用户的账号
+        let account = $.cookie('account');
+        //动态获取对应的路径
+        let str = "{%url 'deal_file' 123%}";
+        $.ajax({
+            // 将路径中的123参数替换成变量account中的值
+           url:str.replace(123,account),
+           type:'post',
+           data:formD,
+            processData:false,//数据传输过程中不需要将数据转换成字符串
+            contentType:false,//ajax传输数据过程中不需要重新设置数据的编码格式
+           success:function (res) {
+               let msg = JSON.parse(res);
+               if(msg.code == 200){
+                   $('#photo').attr('src',msg.url);
+               }else {
+                   alert(msg.error)
+               }
+           }
+        });
+    });
+
+    $('input[type="submit"]').on('click',function (event) {
+        event.preventDefault();
+        // 获取form表单数据
+        let paras = $('form').serialize();// 序列化为字符串
+        paras += ('&account=' + $.cookie('account')+"&photo="+$('#photo').attr('src'));
+        // console.log(paras);
+    //    将数据传输给服务器进行存储
+        create_csrf();
+        $.ajax({
+            url:'{%url "save_user"%}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data.code == 200){
+                    window.location.href = '{%url "home"%}';
+                }
+            }
+        })
+    });
+</script>
+</html>
