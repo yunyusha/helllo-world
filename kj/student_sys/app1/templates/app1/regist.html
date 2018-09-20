@@ -7,5 +7,52 @@
     <link rel="stylesheet" href="{%static 'app1/css/login.css'%}">
 </head>
 <body>
+ <form method="post">
+        {% csrf_token %}
+        <div>
+            用户名: <input type="text" name="user">
+        </div>
+        <div>
+            <span style="letter-spacing: 1em">密</span>码: <input type="password" name="passw">
+        </div>
+        <div>
+            <input type="submit" value="立即注册">
+        </div>
+    </form>
 </body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click', function (event) {
+        //阻止form表单发送数据
+        event.preventDefault();
+        //form 表单数据序列化
+        let paras = $('form').serialize();
+        //发送csrf_token
+        create_csrf();
+        //ajax请求完成数据提交操作
+        $.ajax({
+            url:'{%url "regist_account"%}',
+            type:'post',
+            data:paras,
+            success:function (res) {
+                //数据json解析
+                res = JSON.parse(res);
+                if(res.code == 200){
+                    //本次注册成功
+                    let btn = confirm('用户注册成功,是否返回登录页面完成登录');
+                    if(btn){
+                        //页面自动跳转到登录页面
+                        window.location.href = '{%url "sl"%}';
+                        console.log(paras);
+                    }
+                }else{
+                    //本次注册失败
+                    alert(res['error']);
+                }
+            }
+        })
+    })
+</script>
+
 </html>

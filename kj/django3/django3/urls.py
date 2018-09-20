@@ -1,4 +1,4 @@
-"""student_sys URL Configuration
+"""django3 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,13 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .import views
+from django.urls import include
 urlpatterns = [
-    path('st/', views.show_st, name='st'),
-    path('show_login/', views.show_login, name='sl'),
-    path('login_data/', views.login_data, name='login_data'),
-    path('show_regist/', views.show_regist, name='sr'),
-    path('regist_account/', views.regist_account, name='regist_account'),
-    path('show_upload/', views.render_upload, name='upload'),
-    path('deal_file/<str:account>/', views.deal_file, name='deal_file'),
+    path('admin/', admin.site.urls),
+    path('app1/', include('app1.urls')),
 ]
