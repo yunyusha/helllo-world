@@ -19,10 +19,12 @@ from .views import *
 urlpatterns = [
     # 页面渲染
     path('show_major/', show_major,name='show_major'),
+    path('show_stu/', show_stu, name='ss'),
     # 数据处理
     path('save_major/', save_major, name='sm'),
     path('updata_major', update_major_infor, name='um'),
     path('delete_major/', delete_major, name='dm'),
     path('select_major/', select_all, name='lm'),
+    path('save_stu/', save_stu, name='ss'),
 
 ]

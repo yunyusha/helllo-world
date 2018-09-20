@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 500px;
+            border: 1px solid red;
+            border-radius: 5px;
+            text-align: center;
+            margin: 100px auto;
+        }
+        form>div{
+            margin: 20px 0;
+
+        }
+        input[type='text']{
+            width: 300px;
+            height: 30px;
+        }
+        input[type="submit"]{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            color: whitesmoke;
+            border: 0;
+            background: #8189e2;
+            box-shadow: inset 0 0 20px gray;
+
+        }
+        table{
+            width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid bisque;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <div>
+        学生姓名: <input type="text" name="s_name">
+    </div>
+
+    <div>
+        学生学号: <input type="text" name="s_id">
+    </div>
+
+    <div>
+        学生班级: <input type="text" name="s_class">
+    </div>
+
+    <div>
+        课程编号: <input type="text" name="m_id">
+    </div>
+    <div>
+        <input type="submit" value="提交">
+        <input type="submit" value="更新">
+        <input type="submit" value="删除">
+        <input type="submit" value="查询">
+    </div>
+</form>
+</body>
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/csrf.js'%}"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        //获取form表单数据
+        let paras = $('form').serialize();
+        //发送ajax请求
+        create_csrf();
+        let url_str = '';
+        let or_select = false;
+        if($(this).val() == '提交'){
+            url_str = "{%url 'ss'%}";
+        }
+
+        $.ajax({
+            url:url_str,
+            type:'post',
+            data:paras,
+            success:function (res) {
+                console.log(res);
+                res = JSON.parse(res);
+                if(res.code == 200){
+                    alert(res.success);
+                }else {
+                    alert(res.error);
+                }
+            }
+        });
+    });
+</script>
+</html>

@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab547bd-b00c-4bf5-bfad-0263e6478489" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/app1/templates/major.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/app1/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/common_static/js/csrf.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/common_static/js/jquery.cookie.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/common_static/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/student_sys/app1/static/app1/img/photo.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kj/student_sys/app1/templates/app1/upload.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kj/django3/app1/templates/stu.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/kj/django2/app2/templates/app2/upload.html" afterPath="$PROJECT_DIR$/kj/django2/app2/templates/app2/upload.html" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/app1/templates/app1/login.html" afterPath="$PROJECT_DIR$/kj/student_sys/app1/templates/app1/login.html" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/app1/templates/app1/regist.html" afterPath="$PROJECT_DIR$/kj/student_sys/app1/templates/app1/regist.html" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/app1/urls.py" afterPath="$PROJECT_DIR$/kj/student_sys/app1/urls.py" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/app1/views.py" afterPath="$PROJECT_DIR$/kj/student_sys/app1/views.py" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/db.sqlite3" afterPath="$PROJECT_DIR$/kj/student_sys/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/kj/student_sys/student_sys/settings.py" afterPath="$PROJECT_DIR$/kj/student_sys/student_sys/settings.py" />
+      <change beforePath="$PROJECT_DIR$/kj/django3/app1/urls.py" afterPath="$PROJECT_DIR$/kj/django3/app1/urls.py" />
+      <change beforePath="$PROJECT_DIR$/kj/django3/app1/views.py" afterPath="$PROJECT_DIR$/kj/django3/app1/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,20 +29,21 @@
       <file leaf-file-name="major.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kj/django3/app1/templates/major.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
-              <caret line="100" column="24" lean-forward="true" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+            <state relative-caret-position="-630">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="47" selection-end-column="12" />
               <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <marker date="1537445305841" expanded="true" signature="2758:2975" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kj/django3/app1/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+            <state relative-caret-position="538">
+              <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -61,11 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kj/django3/app1/templates/stu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="100" column="17" lean-forward="true" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kj/django3/app1/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kj/django3/app1/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+            <state relative-caret-position="360">
+              <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
               <folding>
                 <element signature="e#631#663#0" expanded="true" />
               </folding>
@@ -91,7 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kj/django1/app3/static/app3_css/qq.css" />
         <option value="$PROJECT_DIR$/kj/django1/app3/models.py" />
         <option value="$PROJECT_DIR$/kj/django1/django1/settings.py" />
         <option value="$PROJECT_DIR$/kj/django2/app1/admin.py" />
@@ -139,9 +148,10 @@
         <option value="$PROJECT_DIR$/kj/django3/app1/admin.py" />
         <option value="$PROJECT_DIR$/kj/django3/django3/urls.py" />
         <option value="$PROJECT_DIR$/kj/django3/django3/settings.py" />
-        <option value="$PROJECT_DIR$/kj/django3/app1/views.py" />
         <option value="$PROJECT_DIR$/kj/django3/app1/templates/major.html" />
         <option value="$PROJECT_DIR$/kj/django3/app1/urls.py" />
+        <option value="$PROJECT_DIR$/kj/django3/app1/templates/stu.html" />
+        <option value="$PROJECT_DIR$/kj/django3/app1/views.py" />
       </list>
     </option>
   </component>
@@ -192,13 +202,22 @@
               <item name="GitHub_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="GitHub_1" type="462c0819:PsiDirectoryNode" />
               <item name="kj" type="462c0819:PsiDirectoryNode" />
-              <item name="django2" type="462c0819:PsiDirectoryNode" />
+              <item name="django3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GitHub_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="GitHub_1" type="462c0819:PsiDirectoryNode" />
               <item name="kj" type="462c0819:PsiDirectoryNode" />
               <item name="django3" type="462c0819:PsiDirectoryNode" />
+              <item name="app1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GitHub_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GitHub_1" type="462c0819:PsiDirectoryNode" />
+              <item name="kj" type="462c0819:PsiDirectoryNode" />
+              <item name="django3" type="462c0819:PsiDirectoryNode" />
+              <item name="app1" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GitHub_1" type="b2602c69:ProjectViewProjectNode" />
@@ -220,6 +239,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="SearchEverywhereHistoryKey" value="major&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -387,8 +407,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.5042463" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.4957537" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22063667" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1521739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1899012" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24042553" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -446,13 +466,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kj/sha/app_sha/templates/sha/regist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kj/sha/app_sha/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -737,7 +750,7 @@
         <state relative-caret-position="210">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -766,14 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kj/django3/app1/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kj/django2/django2/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -787,7 +792,7 @@
         <state relative-caret-position="456">
           <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding>
-            <element signature="e#631#663#0" expanded="true" />
+            <element signature="e#631#663#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,11 +805,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kj/django3/app1/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kj/django3/app1/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="e#631#663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kj/django3/app1/templates/stu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="100" column="17" lean-forward="true" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kj/django3/app1/templates/major.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="100" column="24" lean-forward="true" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+        <state relative-caret-position="-630">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="47" selection-end-column="12" />
           <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
             <marker date="1537445305841" expanded="true" signature="2758:2975" ph="..." />
           </folding>
         </state>
@@ -812,20 +844,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kj/django3/app1/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="95" column="40" lean-forward="false" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+        <state relative-caret-position="538">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kj/django3/app1/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-          <folding>
-            <element signature="e#631#663#0" expanded="true" />
           </folding>
         </state>
       </provider>

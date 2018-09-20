@@ -5,8 +5,10 @@ from django.http import HttpResponse
 import json
 # Create your views here.
 def show_major(request):
-    return render(request,'major.html')
+    return render(request, 'major.html')
 
+def show_stu(request):
+    return render(request, 'stu.html')
 # 定义函数完成课程数据的接收
 @csrf_exempt
 def save_major(request):
@@ -94,3 +96,37 @@ def select_all(request):
         dic = {'id': obj.major_id, 'mname': obj.name, 'tea_name': names}
         msg = {'code': 200, 'error': '', 'success': dic}
     return HttpResponse(json.dumps(msg))
+
+# 定义函数完成对学生信息的更新
+@csrf_exempt
+def save_stu(request):
+    s_id = request.POST.get('s_id')
+    s_name = request.POST.get('s_name')
+    s_class = request.POST.get('s_class')
+    m_id =  (request.POST.get('m_id')).split(',')
+    # t_id = [int(i) for i in (request.POST.get('m_tea')).split(',')]
+    # 从Major表中查找满足条件的课程信息(__in:查询指定的字段在某一个list中)
+    res = Major.objects.filter(major_id__in=m_id)
+    # 从学生表中查找该学生是否存在,如果不存在,此时插入该课程
+    res1 = Student.objects.filter(stu_id=s_id)
+    obj = None
+    for item in res1:
+        obj = item
+    if obj is not None:
+        # 学生存在,不能插入
+        msg = {'code': 400, 'error': '学生信息已经存在,不能重复录入'}
+    else:
+        # 学生不存在,此时完成数据的插入
+        # 数据库表格中多对多字段进行数据录入时需要和普通字段(一对多字段.一对一字段和其他字段)分开进行数据录入
+        # 先录入Student普通数据,并且获取录入的major对象
+        student = Student(stu_id=s_id, name=s_name, classroom=s_class)
+        # 数据保存在数据库
+        student.save()
+        # 向当前表格中录入多对多数据字段
+        student.major_id.set(res)
+        # 再次调用save将本次绑定的数据写入数据库
+        student.save()
+
+        msg = {'code': 200, 'error': '1', 'success': '数据录入成功'}
+    return HttpResponse(json.dumps(msg))
+
