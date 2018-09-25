@@ -1,4 +1,4 @@
-"""student_sys URL Configuration
+"""django3 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .import views
+from .views import *
 urlpatterns = [
-    path('st/', views.show_st, name='st'),
-    path('show_login/', views.show_login, name='sl'),
-    path('login_data/', views.login_data, name='login_data'),
-    path('show_regist/', views.show_regist, name='sr'),
-    path('regist_account/', views.regist_account, name='regist_account'),
-    path('show_upload/', views.render_upload, name='upload'),
-    path('deal_file/<str:account>/', views.deal_file, name='deal_file'),
+    # 页面渲染
+    path('show_major/', show_major,name='show_major'),
+    path('show_stu/', show_stu, name='ss'),
+    # 数据处理
+    path('save_major/', save_major, name='sm'),
+    path('updata_major', update_major_infor, name='um'),
+    path('delete_major/', delete_major, name='dm'),
+    path('select_major/', select_all, name='lm'),
+    path('save_stu/', save_stu, name='ss'),
+
 ]
