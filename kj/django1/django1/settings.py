@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app1',
     'app2',
     'app3',
+    'app4',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.path.join(BASE_DIR, 'db.mysql'),
+        'USER': 'root',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': 3306,
+    },
+    'db1':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_advanced',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -132,3 +141,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # 设置工程共享的静态文件路径,即在该路径下所有的文件可以被工程中任意一个app共享,
 # app在加载文件的过程中会优先加载该静态文件夹下的文件,如果明日又此时才会加载属于自身app下的static文件夹中的文件
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'common_static'),)
+
+DATABASE_APPS_MAPPING = {
+    'app1':'default',
+    'app4':'db1',
+}
+DATABASE_ROUTERS = {'django1.database_app_router.DatabaseAppRouter'}

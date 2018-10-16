@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 800px;
+            border: 1px solid red;
+            border-radius: 10px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+            margin: 100px auto;
+        }
+        form>div{
+            margin: 15px 0;
+            padding:0 50px;
+        }
+        input[type="text"]{
+            width: 300px;
+            height: 30px;
+        }
+        input[type='radio']{
+            padding: 0 10px;
+        }
+        input[type='submit']{
+            width: 100px;
+            height: 30px;
+            border:1px solid rgba(0,0,0,0.5);
+            color: white;
+            background: rgba(0,0,0,0.7);
+            border-radius:5px;
+        }
+        form>div:last-child{
+            text-align: right;
+        }
+        #photo{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+        #file{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--在文件上传时form表单的数据传输方式必须为post,并且编码格式必须为multipart/form-data,否则服务器端是无法获取传输的文件数据-->
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            头像:
+            <label for="file">
+            <img src="{{img_path}}/1.jpg" alt="" id="photo">
+            </label>
+            <input type="file" id="file">
+        </div>
+        <div>
+            昵称:<input type="text" name="nickname">
+        </div>
+        <div>
+            性别:<input type="radio" name="sex" value="男" checked>男
+            <input type="radio" name="sex" value="女">女
+        </div>
+        <div>
+            年龄:<input type="text" name="age">
+        </div>
+        <div>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+</body>
+<script type="text/javascript" src="{{js_path}}"></script>
+<script type="text/javascript">
+    $('#file').on('change',function () {
+        // 获取file标签选择的文件
+        let file_obj = $('#file').get(0).files[0];
+        // 将文件对象打包成form表单类型的数据
+        let formData = new FormData();
+        formData.append('file', file_obj);
+        // 进行文件数据的上传
+        $.ajax({
+           url: "{{url}}",
+            type:'post',
+            data:formData,
+            processData:false,//数据传输过程中不需要将数据转换成字符串
+             contentType:false,//ajax传输数据过程中不需要重新设置数据的编码格式
+            success:function (responese) {
+                // console.log(responese);
+                // 对数据进行JSON解析
+                let data = JSON.parse(responese);
+                if (data.code == 200){
+                    $('img').attr('src', data.url);
+                }else {
+                    alert(data.error);
+                }
+            }
+        });
+    })
+</script>
+</html>

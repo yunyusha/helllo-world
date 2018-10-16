@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{path}}">
+</head>
+<body>
+    {%for item in word%}
+    <h1>{{item}}</h1>
+    {%endfor%}
+
+    <form action="{{form_path}}" method="post">
+        姓名:<input type="text" name="name">
+        性别:<input type="radio" name="sex" value="男">男
+        <input type="radio" name="sex" value="女">女
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
