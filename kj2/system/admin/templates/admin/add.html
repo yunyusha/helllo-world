@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <style>
+       *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 500px;
+            border:1px solid rgb(223,223,223);
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px 0 25px;
+            margin: 100px auto;
+            outline: none;
+
+        }
+        div{
+            margin: 15px 0;
+        }
+        input{
+            width: 300px;
+            height: 30px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        input[type='submit']{
+            width: 150px;
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,255,0.3);
+        }
+        input[type='submit']:hover{
+            background: rgba(0,0,255,0.3);
+        }
+        input[name='yz']{
+            width: 100px;
+        }
+        #yz{
+            width: 200px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        input[type="radio"]{
+            width: auto;
+            height: auto;
+        }
+        input[type='radio']:checked + span{
+            color: rgba(0,0,255,0.5);
+        }
+        input{
+            margin-left:15px;
+        }
+        .stu{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <div>
+        账号: <input type="text" name="account">
+    </div>
+    <div>
+        密码: <input type="password" name="password">
+    </div>
+    <div>
+        角色:
+        <input type="radio" name="role" checked value="老师">
+        <span>老师</span>
+        <input type="radio" name="role" value="学生">
+        <span>学生</span>
+    </div>
+    <div class="tea">
+        手机: <input type="text" name="tel">
+    </div>
+    <div class="stu">
+        <div>
+            手机: <input type="text" name="tel">
+        </div>
+        <div>
+            性别:
+            <input type="radio" checked name="sex" value="男">
+            <span>男</span>
+            <input type="radio" name="sex" value="女">
+            <span>女</span>
+        </div>
+
+    </div>
+    <input type="submit" value="添加">
+</form>
+</body>
+<script src="../../../static/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $('input[name="role"]').on('change',function () {
+        // 获取点击的按钮
+        let value = $(this).val();
+        if (value=='老师'){
+            $('.stu').hide();
+            $('.tea').slideDown('slow')
+        }else{
+            $('.tea').hide();
+            $('.stu').slideDown('fast')
+
+        }
+    })
+</script>
+</html>

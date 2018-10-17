@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 500px;
+            border:1px solid rgb(223,223,223);
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px 0 25px;
+            margin: 100px auto;
+            outline: none;
+
+        }
+        div{
+            margin: 15px 0;
+        }
+        input{
+            width: 300px;
+            height: 30px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        input[type='submit']{
+            width: 150px;
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,255,0.3);
+        }
+        input[type='submit']:hover{
+            background: rgba(0,0,255,0.3);
+        }
+        input[name='yz']{
+            width: 100px;
+        }
+        #yz{
+            width: 200px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        input[type="radio"]{
+            width: auto;
+            height: auto;
+        }
+        input[type='radio']:checked + span{
+            color: rgba(0,0,255,0.5);
+        }
+        input{
+            margin-left:15px;
+        }
+    </style>
+</head>
+<body>
+{{url}}
+<form action="">
+    <div>
+        <span style="letter-spacing: 1em">账</span>号: <input type="text" name="account">
+    </div>
+
+    <div>
+        <span style="letter-spacing: 1em">密</span>码: <input type="password" name="password">
+    </div>
+
+    <div>
+        验证码: <input type="text" name="yz">
+
+        <img src="{{url}}img/1.jpg" id="yz"/></div>
+    <div>
+        <span style="letter-spacing: 1em">角</span>色:
+        <input type="radio" checked name="role" value="老师">
+        <span>老师</span>
+        <input type="radio" name="role" value="学生">
+        <span>学生</span>
+    </div>
+    <input type="submit" value="登录">
+</form>
+</body>
+<script src="{{static}}js/jquery.min.js"></script>
+<script type="text/javascript">
+    $('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        // 获取form表单数据
+        let paras = $('form').serialize();
+        $.ajax({
+           type:'post',
+           url:'{{request_url}}',
+           data:paras,
+           success:function (res) {
+               console.log(res);
+           }
+        });
+    })
+</script>
+</html>
