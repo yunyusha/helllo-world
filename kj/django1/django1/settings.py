@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app2',
     'app3',
     'app4',
+    'app5',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,9 @@ DATABASE_APPS_MAPPING = {
     'app4':'db1',
 }
 DATABASE_ROUTERS = {'django1.database_app_router.DatabaseAppRouter'}
+
+DATABASE_APPS_MAPPING = {
+    # example:
+    # 'app_name':'database_name',
+    'app5': 'db1',
+}

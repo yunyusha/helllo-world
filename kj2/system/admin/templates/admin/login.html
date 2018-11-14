@@ -83,6 +83,7 @@
 </form>
 </body>
 <script src="{{static}}js/jquery.min.js"></script>
+<script src="{{static}}js/jquery.cookie.js"></script>
 <script type="text/javascript">
     $('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
@@ -93,7 +94,15 @@
            url:'{{request_url}}',
            data:paras,
            success:function (res) {
-               console.log(res);
+               let obj = JSON.parse(res);
+               if(obj.code == 200){
+                   // 记录用户的职位信息
+                   $.cookie('pos', obj.pos,{'path':'/'});
+                   // 跳转到用户管理页面
+                   window.location.href = '{{url_for("admin.show_add")}}';
+               }else {
+                   alert(obj.error);
+               }
            }
         });
     })

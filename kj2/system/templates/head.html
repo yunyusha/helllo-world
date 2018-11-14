@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .head{
+            background: rgba(0,0,255,0.7);
+            text-align: right;
+            padding: 15px 20px;
+        }
+        .head a{
+            text-decoration: none;
+            color: white;
+        }
+        button{
+            padding: 5px 15px;
+            border-radius: 3px;
+            border: 0;
+            cursor: pointer;
+            outline: none;
+        }
+        button:hover, .selected{
+            background: rgba(0,0,255,0.2);
+            color: white;
+        }
+
+        .body .btns{
+            text-align: center;
+            padding: 15px;
+        }
+        .body .btns button{
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <a>账号</a>
+        <button>注销</button>
+    </div>
+    <div class="body">
+        <div class="btns">
+            <button class="selected">用户管理</button>
+            <button>班级管理</button>
+            <button>成绩管理</button>
+            <button>个人资料</button>
+        </div>
+
+    </div>
+</body>
+<script src="{{static}}js/jquery.min.js"></script>
+<script src="{{static}}js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(window).on('load',function () {
+        $('.btns button').removeAtt('class');
+        $('.btns button').eq(1).attr('class','selected')
+    });
+
+    $('.btns button').on('click', function () {
+        //记录用户当前点击的具体按钮
+        $.cookie('btn', $(this).html());
+        $('.btns button').removeAttr('class');
+        $(this).attr('class', 'selected');
+        if($(this).html() == '用户管理'){
+            url = "{{url_for('admin.show_add',_external=True)}}";
+            window.location.href = url
+        }else if($(this).html()=='班级管理'){
+            window.location.href = "{{url_for('class_m.show_class',_external=True)}}";
+        }
+    });
+</script>
+</html>

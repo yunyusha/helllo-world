@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+         *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 500px;
+            text-align: left;
+            padding: 10px 0 25px;
+            margin: 0 auto;
+            outline: none;
+            border:1px solid rgb(223,223,223);
+            border-radius: 10px;
+            display: none;
+        }
+         input{
+            width: 200px;
+            height: 30px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+         input[type='submit']{
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,255,0.3);
+        }
+        input[type='submit']:hover{
+            background: rgba(0,0,255,0.3);
+            color: white;
+        }
+        div{
+            text-align: center;
+            margin: 15px 0;
+        }
+        .classes{
+            width: 60%;
+            border: 1px solid rgba(0,0,255,0.3);
+            border-radius: 5px;
+            margin: 15px auto;
+            padding: 15px;
+        }
+        .class_name{
+            padding: 5px 10px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 10px;
+        }
+        .class_name:hover{
+            background: rgba(0,0,255,0.3);
+            color: white;
+        }
+        input[type="checkbox"]{
+            width: auto;
+            height: auto;
+        }
+        .check{
+            width: 500px;
+            margin: 15px auto;
+            margin-left: 5px;
+        }
+        input[type=checkbox]  :checked + span{
+            color: rgba(0,0,255,0.7);
+        }
+    </style>
+
+</head>
+<body>
+{%include 'head.html'%}
+<div class="classes">
+    <button class="class_name">ZZPY180701</button>
+    <button class="class_name">ZZPY180701</button>
+</div>
+</body>
+<script type="text/javascript">
+        $(window).on('load',function () {
+        $('.btns button').removeAtt('class');
+        $('.btns button').eq(1).attr('class','selected')
+    });
+
+
+    // 获取cookie中存储的用户角色信息
+    if ($.cookie('pos')== 'CEO' || $.cookie('role')=='总监'){
+      let str = `
+        <div class="check"><input type="checkbox">
+        <span>班级创建</span></div>
+        <form action="">
+            <div>
+                班级名称: <input type="text" name="name">
+            </div>
+            <div>
+                任课老师: <input type="text" name="tea">
+            </div>
+            <div>
+                <input type="submit" value="创建">
+            </div>
+        </form>`  ;
+      let mark = $(str);
+      $('.classes').before(mark);
+          $('.check input').on('change', function () {
+        if(this.checked){
+            $('form').slideDown('fast');
+        }else {
+            $('form').hide();
+        }
+    });
+
+    }
+    $('.class_name').on('click',function () {
+        window.location.href ="{{url_for('class_m.show_class_detail',_external=True)}}";
+    })
+</script>
+
+</html>

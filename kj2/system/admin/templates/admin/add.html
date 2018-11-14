@@ -61,13 +61,20 @@
     </style>
 </head>
 <body>
+<div class="header">
+    {%include 'head.html'%}
+</div>
 <form action="">
     <div>
         账号: <input type="text" name="account">
     </div>
+
     <div>
-        密码: <input type="password" name="password">
+        姓名: <input type="text" name="name">
     </div>
+
+
+
     <div>
         角色:
         <input type="radio" name="role" checked value="老师">
@@ -75,13 +82,16 @@
         <input type="radio" name="role" value="学生">
         <span>学生</span>
     </div>
-    <div class="tea">
+     <div>
         手机: <input type="text" name="tel">
     </div>
+    <div class="tea">
+        职务:
+        <input type="radio" name="pos" value="CEO"><span>CEO</span>
+        <input type="radio" name="pos" value="总监"><span>总监</span>
+        <input type="radio" name="pos" value="讲师"><span>讲师</span>
+    </div>
     <div class="stu">
-        <div>
-            手机: <input type="text" name="tel">
-        </div>
         <div>
             性别:
             <input type="radio" checked name="sex" value="男">
@@ -94,19 +104,44 @@
     <input type="submit" value="添加">
 </form>
 </body>
-<script src="../../../static/js/jquery.min.js"></script>
 <script type="text/javascript">
+        $(window).on('load',function () {
+        $('.btns button').removeAtt('class');
+        $('.btns button').eq(1).attr('class','selected')
+    });
+
+
     $('input[name="role"]').on('change',function () {
         // 获取点击的按钮
         let value = $(this).val();
         if (value=='老师'){
-            $('.stu').hide();
-            $('.tea').slideDown('slow')
+            let str = `div class="tea">
+        职务:
+        <input type="radio" name="pos" value="CEO"><span>CEO</span>
+        <input type="radio" name="pos" value="总监"><span>总监</span>
+        <input type="radio" name="pos" value="讲师"><span>讲师</span>
+    </div>`
+            let mark = $(str);
+            $('.stu').remove();
+            $('input[type=submit]').before(mark);
         }else{
-            $('.tea').hide();
-            $('.stu').slideDown('fast')
+            $('.stu').show();
 
         }
+    });
+    // 使用ajax传输数据
+    $('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        let paras = $('form').serialize();
+        $.ajax({
+            type:'post',
+            url:'{{url}}',
+            data:paras,
+            success:function (res) {
+                console.log(res);
+            }
+        })
     })
+
 </script>
 </html>
