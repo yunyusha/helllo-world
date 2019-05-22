@@ -1,0 +1,15 @@
+<!--pages/get/index.wxml-->
+<radio-group name="" class='radio-group' bindchange='radioChange'>
+
+<label class='radio' wx:for='{{name}}'>
+  <radio name='1' value='{{item}}' checked='{{item.checked}}'>
+    {{item}}
+  </radio>
+</label>
+</radio-group>
+
+<view class="page-body">
+    <view class="container">
+        <button bindtap="chooseImageTap">上传图片</button>
+    </view>
+</view>

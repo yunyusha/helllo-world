@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/index2/index2",
+    "pages/photo/index",
+    "pages/type/index",
+    "pages/get/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list": [
+      {
+        "pagePath": "pages/photo/index",
+        "text": "拍照",
+        "iconPath": "img/adjust.png",
+        "selectedIconPath": "img/camera.png"
+      },
+        {
+          "pagePath": "pages/get/index",
+          "text": "拍照",
+          "iconPath": "img/adjust.png",
+          "selectedIconPath": "img/camera.png"
+        },
+      {
+        "pagePath": "pages/index/index",
+        "text": "test",
+        "iconPath": "img/adjust.png",
+        "selectedIconPath": "img/camera.png"
+      }
+    ]
+  }
+}

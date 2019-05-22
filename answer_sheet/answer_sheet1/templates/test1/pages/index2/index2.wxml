@@ -1,0 +1,29 @@
+<!--pages/index2/index2.wxml-->
+<view>
+<form bindsubmit='formSubmit' bindreset='formReset'>
+<view class="section section__title">
+  <input name='input' placeholder="请输入书名/作者/ISBN/等关键字搜索" focus="{{focus}}" />
+  <button name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}' disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>搜索</button>
+</view>
+<view class='list-box'>
+  <view class='list-li' wx:for="{{list_data}}" wx:key="index">
+    <button bindtap='inforRequest' data-link='{{item.link}}'>{{item.name}}</button>
+  </view>
+</view>
+
+<view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+  <view class='ruleZhezhaoContent'>
+  <view class='ruleZhezhaoText'>作者: {{author}}</view>
+  <view class='ruleZhezhaoText' wx:for="{{infor_data}}" wx:for-item="itemType">
+    
+    <view></view>
+   {{itemType.name}}{{itemType.pos}} :{{itemType.type}}
+  
+   </view>
+    <button bindtap='close'>关闭</button>
+    </view>
+    
+    </view>
+
+</form>
+</view>

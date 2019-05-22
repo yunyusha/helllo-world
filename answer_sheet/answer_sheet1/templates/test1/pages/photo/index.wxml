@@ -1,0 +1,22 @@
+<form bindsubmit='formSubmit' bindreset='formReset'>
+<view wx:for='{{changes}}' wx:for-item='index2'>
+<radio-group name="{{index2+1}}" class='radio-group' bindchange='radioChange'>
+
+<view>{{index2+1}}
+<label class='radio' wx:for='{{items}}'>
+  <radio name='1' value='{{item.name}}' checked='{{item.checked}}'>
+    {{item.name}}
+  </radio>
+</label>
+</view>
+
+</radio-group>
+</view>
+<input name="input" placeholder="请输入答案名称" />
+<button type='primary' form-type='submit' bindtap='saveRequest'>保存</button>
+</form>
+<view class="page-body">
+    <view class="container">
+        <button bindtap="chooseImageTap">上传图片</button>
+    </view>
+</view>

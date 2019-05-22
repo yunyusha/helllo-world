@@ -1,0 +1,48 @@
+<!--pages/type/index.wxml-->
+
+<form bindsubmit='formSubmit' bindreset='formReset'>
+<view>
+  <button class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='A  马克思主义、列宁主义、毛泽东思想' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}' disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>A  马克思主义、列宁主义、毛泽东思想</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='B  哲学'  name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>B  哲学</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='C  社会科学总论' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>C  社会科学总论</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='D  政治、法律' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>D  政治、法律</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='E  军事' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>E  军事</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='F  经济' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>F  经济</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='G  文化、科学、教育、体育' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>G  文化、科学、教育、体育</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='H 语言、文字' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>H 语言、文字</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='I  文学'name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>I  文学</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='J  艺术' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>J  艺术</button>
+<button   class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='K  历史、地理' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>K  历史、地理</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='N  自然科学总论' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>N  自然科学总论</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='O  数理科学和化学' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>O  数理科学和化学</button>
+<button   class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='P  天文学、地球科学' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>P  天文学、地球科学</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='R  医药、卫生' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>R  医药、卫生</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='S 农林科学' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>S 农林科学</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='T  工业技术'name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>T  工业技术</button>
+<button class='{{tshow?"isRuleShow":"isRuleHide"}}' data-text='>U  交通运输' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>U  交通运输</button>
+<button   class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='V  航空、航天' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>V  航空、航天</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='X  环境科学、劳动保护科学 (安全科学)'name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>X  环境科学、劳动保护科学 (安全科学)</button>
+<button  class='{{tshow?"isRuleShow":"isRuleHide"}}'data-text='Z  综合性图书' name='name' type='primary' size='{{primarySize}}' loading='{{loading}}' plain='{{plain}}'disabled='{{disabled}}' bindtap='sendRequest' form-type='submit'>Z  综合性图书</button>
+
+</view>
+<button bindtap='goback'>返回</button>
+<view>
+</view>
+<view wx:for="{{name_data}}">
+  <button bindtap='inforRequest' data-link='{{item.link}}'>{{item.name}}</button>
+</view>
+
+<view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+  <view class='ruleZhezhaoContent'>
+  <view class='ruleZhezhaoText'>作者: {{author}}</view>
+  <view class='ruleZhezhaoText' wx:for="{{infor_data}}" wx:for-item="itemType">
+    
+    <view></view>
+   {{itemType.name}}{{itemType.pos}} :{{itemType.type}}
+  
+   </view>
+    <button bindtap='close'>关闭</button>
+    </view>
+    
+    </view>
+</form>
